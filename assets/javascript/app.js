@@ -19,42 +19,41 @@ var intervalid;
 var count;
 var timerChecker = false;
 
-var trivia = {[{
-              
-                prompt1 : "What does the "AA" arm patch, worn by the 82nd soldiers, stand for ?",
-                            "a. All American", 
-                            "b. Anti-Aircraft", 
-                            "c. Academic Awards",
-                            "d. Active Army",
-                        },{
-                prompt2:  "What is the Home Station for th 82d Airbone ?",
-                            "a. Fort Cambell",
-                            "b. Fort Gordon",
-                            "c. Fort Bliss",
-                            "d. Fort Bragg",
+var trivia = [  { q1: "What does the 'AA' arm patch, worn by the 82nd soldiers, stand for ?" ,
+                	        a1:["a. All American", 
+                                "b. Anti-Aircraft",
+                                "c. Academic Awards",
+                                "d. Active Army"]
+                               },
+                        
+                 { q2: "What is the Home Station for th 82d Airbone ?",
+                            a2:[ "a. Fort Cambell",
+                                 "b. Fort Gordon",
+                                 "c. Fort Bliss",
+                                 "d. Fort Bragg" ]
 
-                        },{
-                prompt3: "Approximately how many jumps are conducted every month at the Home Station ?",
-                            "a. 100",
-                            "b. 5,000",
-                            "c. 10,000",
-                            "d. 15,000" ,
+                        },
+                 { q3: "Approximately how many jumps are conducted every month at the Home Station ?",
+                           a3:[	  "a. 100",
+                                    "b. 5,000",
+                                    "c. 10,000",
+                                    "d. 15,000" ]
 
-                        },{
-                prompt4: "When was the 82d Airborne founded ?",
-                            "a. 1920", 
-                            "b. 1917",
-                            "c. 1941",
-                            "d. 1909",
+                        },
+                {q4:"When was the 82d Airborne founded ?",
+                           a4: ["a. 1920", 
+                                    "b. 1917",
+                                    "c. 1941",
+                                    "d. 1909"]
 
-                        },{
-                prompt5: "Which country music star served in the 82d airborne  ?",
-                            "a. Fort Cambell",
-                            "b. Fort Gordon", 
-                            "c. Fort Bliss", 
-                            "d. Fort Bragg",
-        
-                }];
+                        },
+                {q5:"Which country music star served in the 82d airborne  ?",
+                        a5:[    "a. Fort Cambell",
+                                "b. Fort Gordon", 
+                                "c. Fort Bliss", 
+                                "d. Fort Bragg"]
+			            }
+        ];
 
     start: function(){
 
