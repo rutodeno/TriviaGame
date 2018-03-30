@@ -54,7 +54,63 @@ var trivia = [  { q1: "What does the 'AA' arm patch, worn by the 82nd soldiers, 
                                 "d. Fort Bragg"]
 			            }
         ];
+//////// new information ////////
+	function displayPrompt () {
 
+
+				$("#prompts").html(trivia[count].q+"<br>"+
+					trivia[count].a[0]+"<br>"+
+					trivia[count].a[1]+"<br>"+
+					trivia[count].a[2]+"<br>"+
+					trivia[count].a[3]);
+	
+	
+	};
+
+
+	
+
+	function loadPrompt () {
+
+
+	
+		count++;
+		console.log("count: "+count)
+		
+		
+		setTimeout(displayPrompt, 1000);
+		
+		if (count === trivia.length){
+			
+			stopPrompt();
+
+				
+		};
+		
+	};
+
+
+	
+	
+
+	function startPrompt () {
+		showPrompt = setInterval(loadPrompt, 30000);
+	
+	};
+
+	
+
+	function stopPrompt () {
+		clearInterval(showPrompt);
+
+	};
+
+
+	displayPrompt();
+	
+	startPrompt()
+
+/////// 
     start: function(){
 
         if (!timerChecker){
