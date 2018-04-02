@@ -8,11 +8,20 @@
 // After five questions, show the results
 
 // window.onload to start function
-window.onload = function () {
+$(document).ready (function () {
 
-    $("#loadGame").click(startPrompt)
-    console.log("begin");
-};
+    $("#loadGame").click(function(){
+
+        startPrompt();
+
+        $("#background").css("background-color","white");
+
+
+
+    });
+
+
+});
 
 var timer = 30;
 var intervalid;
@@ -63,6 +72,8 @@ var trivia = [{
 
 function displayPrompt() {
 
+
+
     $("#wrapper").html(trivia[count].q + "<br>" +
         trivia[count].a[0] + "<br>" +
         trivia[count].a[1] + "<br>" +
@@ -70,17 +81,15 @@ function displayPrompt() {
         trivia[count].a[3]
     );
 
-    for (var i=0 ; i<trivia[count].length; i++ ) {
-        var newButton = $("<button type ='button' class='btn btn-default'>");
+        var newDiv = $("<div id='imageId'>");
 
-        newButton.attr("a", trivia[count].a[0]);
-        newButton.attr("b", trivia[count].a[1]);
-        newButton.attr("c", trivia[count].a[2]);
-        newButton.attr("d", trivia[count].a[3]);
+        newDiv.attr("a", trivia[count].a[0]);
+        newDiv.attr("b", trivia[count].a[1]);
+        newDiv.attr("c", trivia[count].a[2]);
+        newDiv.attr("d", trivia[count].a[3]);
 
-        $("#wrapper").append(newButton);
+        $("#wrapper").append(newDiv);
 
-    }
 
 
 

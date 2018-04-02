@@ -15,20 +15,26 @@
 h1 {
 
     text-align:center;
-    height: 60px;
-    margin: 0px 0px 10px;
+    height: 50px;
+    margin: 0px 0px 5px;
 }
 
 body {
 
-    background-image: url("../image/82dairborne2.jpg");
-    
+    background-image: url("../image/82dairborne3.jpg");
     height: 100%;
     width: 100%;
-
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: image-set();
+}
+
+#imageId:hover {
+    background-color: #800020;
+}
+
+#background {
+    height: 300px;
+    padding: 40px 0 0 20px;
 }
 
 
