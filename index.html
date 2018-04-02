@@ -6,39 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
 
+
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
     <!-- css link -->
-    <link  href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     
 </head>
 <body>
+<div class="jumbotron">
+            <h1>82nd Airborne Trivia !!!</h1>
+            <p>Welcome to the 82 airborne trivia</p>
+            <p>
+                <a class="btn btn-info btn-md" href="http://www.82ndairbornedivisionmuseum.com/general-information/" role="button" target="_blank">Click to learn more</a>
+            </p>
+</div>
 
-        <!-- header -->
-        <header>
-                <h1>82d Airborne Trivia !! </h1>
-        </header>
+<div class="container">
 
-        <!-- time display -->
-        <div id="timeDisplay"></div>
-      
-        <div id="wrapper">
-            <!-- logo -->
-        
-            <img src="assets/image/logo.jpg" alt="82nd Airborne logo" class="img-thumbnail" width="300px" height="300px">
-        
-            <!-- buttons -->
-            <button id="loadGame">Start</button>
-            
-            
+    <div id="background">
+        <div class="row">
+
+            <div class="col-md-4">
+                <!-- time display -->
+                <div id="timeDisplay"></div>
+
+            </div>
+
+            <div class="col-md-8" id="wrapper">
+                <!-- buttons -->
+                <button class="btn  btn-lg" id="loadGame">Click to Begin</button>
+
+            </div>
+
+
 
         </div>
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Script -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    </div>
+
+</div>
+
+
+<!-- Script-->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 
     
 </body>

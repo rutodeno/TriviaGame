@@ -8,109 +8,140 @@
 // After five questions, show the results
 
 // window.onload to start function
-
 window.onload = function () {
 
-    $("#loadGame").click(trivia.start)
+    $("#loadGame").click(startPrompt)
+    console.log("begin");
 };
 
-var timer = 50;
+var timer = 30;
 var intervalid;
-var count;
+var count=0;
 var timerChecker = false;
 
-var trivia = [  { q1: "What does the 'AA' arm patch, worn by the 82nd soldiers, stand for ?" ,
-                	        a1:["a. All American", 
-                                "b. Anti-Aircraft",
-                                "c. Academic Awards",
-                                "d. Active Army"]
-                               },
-                        
-                 { q2: "What is the Home Station for th 82d Airbone ?",
-                            a2:[ "a. Fort Cambell",
-                                 "b. Fort Gordon",
-                                 "c. Fort Bliss",
-                                 "d. Fort Bragg" ]
+var trivia = [{
+    q: "What does the 'AA' arm patch, worn by the 82nd soldiers, stand for ?",
+    a: ["a. All American",
+        "b. Anti-Aircraft",
+        "c. Academic Awards",
+        "d. Active Army"]
+},
 
-                        },
-                 { q3: "Approximately how many jumps are conducted every month at the Home Station ?",
-                           a3:[	  "a. 100",
-                                    "b. 5,000",
-                                    "c. 10,000",
-                                    "d. 15,000" ]
+{
+    q: "What is the Home Station for th 82d Airbone ?",
+    a: ["a. Fort Cambell",
+        "b. Fort Gordon",
+        "c. Fort Bliss",
+        "d. Fort Bragg"]
 
-                        },
-                {q4:"When was the 82d Airborne founded ?",
-                           a4: ["a. 1920", 
-                                    "b. 1917",
-                                    "c. 1941",
-                                    "d. 1909"]
+},
+{
+    q: "Approximately how many jumps are conducted every month at the Home Station ?",
+    a: ["a. 100",
+        "b. 5,000",
+        "c. 10,000",
+        "d. 15,000"]
 
-                        },
-                {q5:"Which country music star served in the 82d airborne  ?",
-                        a5:[    "a. Fort Cambell",
-                                "b. Fort Gordon", 
-                                "c. Fort Bliss", 
-                                "d. Fort Bragg"]
-			            }
-        ];
-//////// new information ////////
-	function displayPrompt () {
+},
+{
+    q: "When was the 82d Airborne founded ?",
+    a: ["a. 1920",
+        "b. 1917",
+        "c. 1941",
+        "d. 1909"]
 
-
-				$("#prompts").html(trivia[count].q+"<br>"+
-					trivia[count].a[0]+"<br>"+
-					trivia[count].a[1]+"<br>"+
-					trivia[count].a[2]+"<br>"+
-					trivia[count].a[3]);
-	
-	
-	};
+},
+{
+    q: "Which country music star served in the 82d airborne  ?",
+    a: ["a. Fort Cambell",
+        "b. Fort Gordon",
+        "c. Fort Bliss",
+        "d. Fort Bragg"]
+}
+];
 
 
-	
+function displayPrompt() {
 
-	function loadPrompt () {
+    $("#wrapper").html(trivia[count].q + "<br>" +
+        trivia[count].a[0] + "<br>" +
+        trivia[count].a[1] + "<br>" +
+        trivia[count].a[2] + "<br>" +
+        trivia[count].a[3]
+    );
 
+    for (var i=0 ; i<trivia[count].length; i++ ) {
+        var newButton = $("<button type ='button' class='btn btn-default'>");
 
-	
-		count++;
-		console.log("count: "+count)
-		
-		
-		setTimeout(displayPrompt, 1000);
-		
-		if (count === trivia.length){
-			
-			stopPrompt();
+        newButton.attr("a", trivia[count].a[0]);
+        newButton.attr("b", trivia[count].a[1]);
+        newButton.attr("c", trivia[count].a[2]);
+        newButton.attr("d", trivia[count].a[3]);
 
-				
-		};
-		
-	};
+        $("#wrapper").append(newButton);
 
-
-	
-	
-
-	function startPrompt () {
-		showPrompt = setInterval(loadPrompt, 30000);
-	
-	};
-
-	
-
-	function stopPrompt () {
-		clearInterval(showPrompt);
-
-	};
+    }
 
 
-	displayPrompt();
-	
-	startPrompt()
 
-/////// 
+};
+
+function displayTime () {
+    intervalid = setInterval(timeforPrompt,1000)
+}
+
+function timeforPrompt(){
+    timer--;
+
+    console.log("timer: "+timer);
+
+    $("#timeDisplay").html("<p>Time Remaining: "+timer+"</p>");
+
+    if (timer === 0){
+        timer = 30; // restarting timer
+    };
+
+}
+
+
+function loadPrompt() {
+
+    count++;
+    console.log("count: " + count)
+
+    setTimeout(displayPrompt, 1000);
+
+    if (count === trivia.length) {
+
+        stopPrompt();
+    };
+
+    
+
+};
+
+
+function startPrompt() {
+    displayTime();
+    displayPrompt();
+    showPrompt = setInterval(loadPrompt, 30000);
+
+};
+
+
+function stopPrompt() {
+    clearInterval(showPrompt);
+
+};
+
+// intergrate timer with count so that both stop at the end of the trivia question.
+// Create buttons and save them in an array. This array hold the user answer. If the users clicks an answer it should move to next question.
+// at the end, the game brings out the users answers
+
+//displayPrompt();
+
+
+/* 
     start: function(){
 
         if (!timerChecker){
@@ -168,3 +199,4 @@ var trivia = [  { q1: "What does the 'AA' arm patch, worn by the 82nd soldiers, 
 
 
 
+*/
