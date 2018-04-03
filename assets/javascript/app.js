@@ -69,26 +69,33 @@ var trivia = [{
 }
 ];
 
+$(document).on('click', '.answer', function() {
+    console.log('sup');
+});
+
+$(document).on('mouseenter', '.answer', function() {
+    console.log('yo');
+});
 
 function displayPrompt() {
 
 
 
     $("#wrapper").html(trivia[count].q + "<br>" +
-        trivia[count].a[0] + "<br>" +
+        "<div class='answer'>" + trivia[count].a[0] + "</div><br>" +
         trivia[count].a[1] + "<br>" +
         trivia[count].a[2] + "<br>" +
         trivia[count].a[3]
     );
 
-        var newDiv = $("<div id='imageId'>");
+        // var newDiv = $("<div id='imageId'>");
 
-        newDiv.attr("a", trivia[count].a[0]);
-        newDiv.attr("b", trivia[count].a[1]);
-        newDiv.attr("c", trivia[count].a[2]);
-        newDiv.attr("d", trivia[count].a[3]);
+        // newDiv.attr("a", trivia[count].a[0]);
+        // newDiv.attr("b", trivia[count].a[1]);
+        // newDiv.attr("c", trivia[count].a[2]);
+        // newDiv.attr("d", trivia[count].a[3]);
 
-        $("#wrapper").append(newDiv);
+        // $("#wrapper").append(newDiv);
 
 
 
