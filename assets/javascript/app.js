@@ -7,6 +7,7 @@
 // the game loads up a new question. Repeat the process
 // After five questions, show the results
 
+<<<<<<< HEAD
 // window.onload to start function
 $(document).ready (function () {
 
@@ -22,6 +23,10 @@ $(document).ready (function () {
 
 
 });
+=======
+// 
+
+>>>>>>> 6b803a29dff1776f2c882dc1c4ea16ac68316072
 
 var timer = 30;
 var intervalid;
@@ -69,6 +74,7 @@ var trivia = [{
 }
 ];
 
+<<<<<<< HEAD
 $(document).on('click', '.answer', function() {
     console.log('sup');
 });
@@ -76,12 +82,39 @@ $(document).on('click', '.answer', function() {
 $(document).on('mouseenter', '.answer', function() {
     console.log('yo');
 });
+=======
+$(document).ready(function() {
+
+	$("#loadGame").on("click", function() {
+		
+		startPrompt();
+    
+		$("#background").css("background-color","#fff");
+
+		$(".answer").on("click", function(){
+                // this is where the magic happens
+    			console.log("yo bro");	
+		});
+		
+		$(".answer").hover(function(){
+			
+			$(this).css("background-color","#0ff0ff");
+		}, function(){
+			$(this).css("background-color","white");	
+		});
+	
+	});
+	
+});
+
+>>>>>>> 6b803a29dff1776f2c882dc1c4ea16ac68316072
 
 function displayPrompt() {
 
 
 
     $("#wrapper").html(trivia[count].q + "<br>" +
+<<<<<<< HEAD
         "<div class='answer'>" + trivia[count].a[0] + "</div><br>" +
         trivia[count].a[1] + "<br>" +
         trivia[count].a[2] + "<br>" +
@@ -100,6 +133,13 @@ function displayPrompt() {
 
 
 
+=======
+        "<div class ='answer'>"+trivia[count].a[0] + "</div><br>" +
+        "<div class ='answer'>"+trivia[count].a[1] + "</div><br>" +
+        "<div class ='answer'>"+trivia[count].a[2] + "</div><br>" +
+        "<div id ='answer'>"+trivia[count].a[3] + "</div>"
+    );
+>>>>>>> 6b803a29dff1776f2c882dc1c4ea16ac68316072
 };
 
 function displayTime () {
@@ -131,11 +171,7 @@ function loadPrompt() {
 
         stopPrompt();
     };
-
-    
-
 };
-
 
 function startPrompt() {
     displayTime();
@@ -144,75 +180,7 @@ function startPrompt() {
 
 };
 
-
 function stopPrompt() {
     clearInterval(showPrompt);
 
 };
-
-// intergrate timer with count so that both stop at the end of the trivia question.
-// Create buttons and save them in an array. This array hold the user answer. If the users clicks an answer it should move to next question.
-// at the end, the game brings out the users answers
-
-//displayPrompt();
-
-
-/* 
-    start: function(){
-
-        if (!timerChecker){
-            intervalid = setInterval(trivia.counter, 1000);
-            //setTimeout(trivia.loadNewQuestion, timer);
-            trivia.loadNewQuestion(trivia.question1, trivia.answerArr1);
-
-        }
-
-        
-
-        
-    },
-
-    counter: function(){
-
-        timer--;    
-
-        $("#timeDisplay").html("<p>Time Remaining: "+timer+"</p>");   
-
-        if (timer === 0){
-            timer = 50; // restarting timer
-
-            trivia.loadNewQuestion(trivia.question2, trivia.answerArr2);
-
-        }
-        
-        
-    },
-
-    loadNewQuestion: function(question, answerArr){
-
-        var newDiv =$("<div>");
-
-        newDiv.append(question +"<br>")
-
-        $.each(answerArr, function(index, value){
-            newDiv.append(value+"<br>")});
-
-            $("#wrapper").html(newDiv);
-    },
-
-    nextQuestion: function (){
-
-
-
-    },
-    reset: function (){
-
-    }
-
-
-
-};
-
-
-
-*/
