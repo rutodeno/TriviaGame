@@ -60,17 +60,21 @@ var trivia = [{
 }
 ];
 
+$(".answer").on("click", function(){
+    
+    console.log("yo bro");
+});
 
 function displayPrompt() {
 
     $("#wrapper").html(trivia[count].q + "<br>" +
-        trivia[count].a[0] + "<br>" +
-        trivia[count].a[1] + "<br>" +
-        trivia[count].a[2] + "<br>" +
-        trivia[count].a[3]
+        "<div class ='answer'>"+trivia[count].a[0] + "</div><br>" +
+        "<div class ='answer'>"+trivia[count].a[1] + "</div><br>" +
+        "<div class ='answer'>"+trivia[count].a[2] + "</div><br>" +
+        "<div id ='answer'>"+trivia[count].a[3] + "</div>"
     );
 
-    for (var i=0 ; i<trivia[count].length; i++ ) {
+/*    for (var i=0 ; i<trivia[count].length; i++ ) {
         var newButton = $("<button type ='button' class='btn btn-default'>");
 
         newButton.attr("a", trivia[count].a[0]);
@@ -81,7 +85,7 @@ function displayPrompt() {
         $("#wrapper").append(newButton);
 
     }
-
+*/
 
 
 };
