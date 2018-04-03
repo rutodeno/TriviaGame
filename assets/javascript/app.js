@@ -7,12 +7,8 @@
 // the game loads up a new question. Repeat the process
 // After five questions, show the results
 
-// window.onload to start function
-window.onload = function () {
+// 
 
-    $("#loadGame").click(startPrompt)
-    console.log("begin");
-};
 
 var timer = 30;
 var intervalid;
@@ -60,10 +56,30 @@ var trivia = [{
 }
 ];
 
-$(".answer").on("click", function(){
+$(document).ready(function() {
+
+	$("#loadGame").on("click", function() {
+		
+		startPrompt();
     
-    console.log("yo bro");
+		$("#background").css("background-color","#fff");
+
+		$(".answer").on("click", function(){
+                // this is where the magic happens
+    			console.log("yo bro");	
+		});
+		
+		$(".answer").hover(function(){
+			
+			$(this).css("background-color","#0ff0ff");
+		}, function(){
+			$(this).css("background-color","white");	
+		});
+	
+	});
+	
 });
+
 
 function displayPrompt() {
 
@@ -73,21 +89,6 @@ function displayPrompt() {
         "<div class ='answer'>"+trivia[count].a[2] + "</div><br>" +
         "<div id ='answer'>"+trivia[count].a[3] + "</div>"
     );
-
-/*    for (var i=0 ; i<trivia[count].length; i++ ) {
-        var newButton = $("<button type ='button' class='btn btn-default'>");
-
-        newButton.attr("a", trivia[count].a[0]);
-        newButton.attr("b", trivia[count].a[1]);
-        newButton.attr("c", trivia[count].a[2]);
-        newButton.attr("d", trivia[count].a[3]);
-
-        $("#wrapper").append(newButton);
-
-    }
-*/
-
-
 };
 
 function displayTime () {
@@ -119,11 +120,7 @@ function loadPrompt() {
 
         stopPrompt();
     };
-
-    
-
 };
-
 
 function startPrompt() {
     displayTime();
@@ -132,75 +129,7 @@ function startPrompt() {
 
 };
 
-
 function stopPrompt() {
     clearInterval(showPrompt);
 
 };
-
-// intergrate timer with count so that both stop at the end of the trivia question.
-// Create buttons and save them in an array. This array hold the user answer. If the users clicks an answer it should move to next question.
-// at the end, the game brings out the users answers
-
-//displayPrompt();
-
-
-/* 
-    start: function(){
-
-        if (!timerChecker){
-            intervalid = setInterval(trivia.counter, 1000);
-            //setTimeout(trivia.loadNewQuestion, timer);
-            trivia.loadNewQuestion(trivia.question1, trivia.answerArr1);
-
-        }
-
-        
-
-        
-    },
-
-    counter: function(){
-
-        timer--;    
-
-        $("#timeDisplay").html("<p>Time Remaining: "+timer+"</p>");   
-
-        if (timer === 0){
-            timer = 50; // restarting timer
-
-            trivia.loadNewQuestion(trivia.question2, trivia.answerArr2);
-
-        }
-        
-        
-    },
-
-    loadNewQuestion: function(question, answerArr){
-
-        var newDiv =$("<div>");
-
-        newDiv.append(question +"<br>")
-
-        $.each(answerArr, function(index, value){
-            newDiv.append(value+"<br>")});
-
-            $("#wrapper").html(newDiv);
-    },
-
-    nextQuestion: function (){
-
-
-
-    },
-    reset: function (){
-
-    }
-
-
-
-};
-
-
-
-*/
