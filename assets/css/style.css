@@ -34,7 +34,10 @@ body {
 
 #background {
     height: 300px;
-    padding: 40px 0 0 20px;
+    padding: 20px;
+    border: #73a4c9;
+    border-width: 2px;
+    
 }
 
 
@@ -45,12 +48,21 @@ button#loadGame{
     color: #fff;
 }
 
+.answer {
+    width: 200px;
+    margin-left: 10px;
+}
+
 #background {
 
    /* background-image: ("../image/circles-light.png"); */
     /*text-align: center; */
     font-size: 16px;
 
+}
+
+.answer :hover {
+    background-color: #73a4c9; 
 }
 
 

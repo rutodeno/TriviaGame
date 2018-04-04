@@ -7,30 +7,11 @@
 // the game loads up a new question. Repeat the process
 // After five questions, show the results
 
-<<<<<<< HEAD
-// window.onload to start function
-$(document).ready (function () {
 
-    $("#loadGame").click(function(){
-
-        startPrompt();
-
-        $("#background").css("background-color","white");
-
-
-
-    });
-
-
-});
-=======
-// 
-
->>>>>>> 6b803a29dff1776f2c882dc1c4ea16ac68316072
 
 var timer = 30;
 var intervalid;
-var count=0;
+var count = 0;
 var timerChecker = false;
 
 var trivia = [{
@@ -74,86 +55,90 @@ var trivia = [{
 }
 ];
 
-<<<<<<< HEAD
+var userSelection="";
+
+$(document).ready(function () {
+
+    $("#loadGame").on("click", function () {
+
+        startPrompt();
+
+        $("#background").css("background-color", "#fff");
+
+
+    });
+
+});
+
+
 $(document).on('click', '.answer', function() {
-    console.log('sup');
+
+
+    console.log($(this).text());
+    console.log(trivia[count].a[0]);
+    console.log("count: " +count);
+
+    // this is where the magic happens
+    // checking user input. if user selects an answer, check it and see if its correct. grade the use at the end
+
+    if (count === 0) {
+
+        if ( $(this).text() === trivia[count].a[0] ){
+            
+            console.log("you got it");
+        } else {
+
+            console.log("you didn't get it");
+        }
+
+    }
+
+    loadPrompt()
+
+
+
 });
 
-$(document).on('mouseenter', '.answer', function() {
-    console.log('yo');
-});
-=======
-$(document).ready(function() {
 
-	$("#loadGame").on("click", function() {
-		
-		startPrompt();
+$(document).on("mouseenter",".answer",function () {
+    // why does 'this' work and not .answer ?
+    $(this).css("background-color", "#73a4c9");
     
-		$("#background").css("background-color","#fff");
-
-		$(".answer").on("click", function(){
-                // this is where the magic happens
-    			console.log("yo bro");	
-		});
-		
-		$(".answer").hover(function(){
-			
-			$(this).css("background-color","#0ff0ff");
-		}, function(){
-			$(this).css("background-color","white");	
-		});
-	
-	});
-	
+   
 });
 
->>>>>>> 6b803a29dff1776f2c882dc1c4ea16ac68316072
+$(document).on("mouseleave",".answer",function () {
+
+    $(this).css("background-color", "#fff");
+   
+});
+
+
+
 
 function displayPrompt() {
 
 
 
     $("#wrapper").html(trivia[count].q + "<br>" +
-<<<<<<< HEAD
-        "<div class='answer'>" + trivia[count].a[0] + "</div><br>" +
-        trivia[count].a[1] + "<br>" +
-        trivia[count].a[2] + "<br>" +
-        trivia[count].a[3]
+        "<div class ='answer'>" + trivia[count].a[0] + "</div><br>" +
+        "<div class ='answer'>" + trivia[count].a[1] + "</div><br>" +
+        "<div class ='answer'>" + trivia[count].a[2] + "</div><br>" +
+        "<div class ='answer'>" + trivia[count].a[3] + "</div>"
     );
 
-        // var newDiv = $("<div id='imageId'>");
 
-        // newDiv.attr("a", trivia[count].a[0]);
-        // newDiv.attr("b", trivia[count].a[1]);
-        // newDiv.attr("c", trivia[count].a[2]);
-        // newDiv.attr("d", trivia[count].a[3]);
-
-        // $("#wrapper").append(newDiv);
-
-
-
-
-=======
-        "<div class ='answer'>"+trivia[count].a[0] + "</div><br>" +
-        "<div class ='answer'>"+trivia[count].a[1] + "</div><br>" +
-        "<div class ='answer'>"+trivia[count].a[2] + "</div><br>" +
-        "<div id ='answer'>"+trivia[count].a[3] + "</div>"
-    );
->>>>>>> 6b803a29dff1776f2c882dc1c4ea16ac68316072
 };
 
-function displayTime () {
-    intervalid = setInterval(timeforPrompt,1000)
+function displayTime() {
+    intervalid = setInterval(timeforPrompt, 1000)
 }
 
-function timeforPrompt(){
+function timeforPrompt() {
     timer--;
+    $("#timeDisplay").html("<p>Time Remaining: " + timer + "</p>");
 
-    console.log("timer: "+timer);
-
-    $("#timeDisplay").html("<p>Time Remaining: "+timer+"</p>");
-
-    if (timer === 0){
+    if (timer === 0) {
         timer = 30; // restarting timer
     };
 
