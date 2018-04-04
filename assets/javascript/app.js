@@ -47,15 +47,22 @@ var trivia = [{
 
 },
 {
-    q: "Which country music star served in the 82d airborne  ?",
-    a: ["a. Fort Cambell",
-        "b. Fort Gordon",
-        "c. Fort Bliss",
-        "d. Fort Bragg"]
+    q: "Which country music star served in the 82d Airborne  ?",
+    a: ["a. Elvis Presly",
+        "b. Johnny Cash",
+        "c. Craig Morgan",
+        "d. Dolly Parton"]
+},
+{
+    q: "Which 1962 classic movie featured the 82d Airborne Division  ?",
+    a: ["a. Frozen",
+        "b. Dunkirk",
+        "c. Airbone",	
+        "d. The Longest Day"]
 }
 ];
 
-var userSelection="";
+
 
 $(document).ready(function () {
 
@@ -81,19 +88,37 @@ $(document).on('click', '.answer', function() {
     // this is where the magic happens
     // checking user input. if user selects an answer, check it and see if its correct. grade the use at the end
 
-    if (count === 0) {
 
-        if ( $(this).text() === trivia[count].a[0] ){
+       if ( (count === 0) && ($(this).text() === trivia[count].a[0]) ){
             
             console.log("you got it");
+		    correctAnswer ++;
+
+        } else if ( (count === 1) && ($(this).text() === trivia[count].a[3]) ){
+            
+            console.log("you got it");
+		    correctAnswer ++;
+        } else if ( (count === 2) && ($(this).text() === trivia[count].a[2]) ){
+            
+            console.log("you got it");
+        } else if ( (count === 3) && ($(this).text() === trivia[count].a[2]) ){
+            
+            console.log("you got it");
+		    correctAnswer ++;
+        } else if ( (count === 4) && ($(this).text() === trivia[count].a[0]) ){
+            
+            console.log("you got it");
+		    correctAnswer ++;
+        } else if ( (count === 5) && ($(this).text() === trivia[count].a[0]) ){
+            
+            console.log("you got it");
+		    correctAnswer ++;
         } else {
 
             console.log("you didn't get it");
         }
-
-    }
-
-    loadPrompt()
+  
+        loadPrompt()
 
 
 
