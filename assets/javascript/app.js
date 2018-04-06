@@ -10,9 +10,12 @@
 
 
 var timer = 30;
-var intervalid;
+var intervalTimer =0;
+var invervalPrompt=0; // hold 
+var timeoutDisplay = 0;
 var count = 0;
 var timerChecker = false;
+var correctAnswer = 0;
 
 var trivia = [{
     q: "What does the 'AA' arm patch, worn by the 82nd soldiers, stand for ?",
@@ -68,7 +71,7 @@ $(document).ready(function () {
 
     $("#loadGame").on("click", function () {
 
-        startPrompt();
+        startTrivia();
 
         $("#background").css("background-color", "#fff");
 
@@ -117,8 +120,14 @@ $(document).on('click', '.answer', function() {
 
             console.log("you didn't get it");
         }
+
+        if (count === (trivia.length -1)) {
+
+            stopTrivia();
+        };
+
   
-        loadPrompt()
+        loadTrivia()
 
 
 
@@ -127,8 +136,7 @@ $(document).on('click', '.answer', function() {
 
 $(document).on("mouseenter",".answer",function () {
     // why does 'this' work and not .answer ?
-    $(this).css("background-color", "#73a4c9");
-    
+    $(this).css("background-color", "#73a4c9");  
    
 });
 
@@ -138,12 +146,7 @@ $(document).on("mouseleave",".answer",function () {
    
 });
 
-
-
-
-function displayPrompt() {
-
-
+function displayTrivia() {
 
     $("#wrapper").html(trivia[count].q + "<br>" +
         "<div class ='answer'>" + trivia[count].a[0] + "</div><br>" +
@@ -152,11 +155,10 @@ function displayPrompt() {
         "<div class ='answer'>" + trivia[count].a[3] + "</div>"
     );
 
-
 };
 
 function displayTime() {
-    intervalid = setInterval(timeforPrompt, 1000)
+    intervalTimer = setInterval(timeforPrompt, 1000)
 }
 
 function timeforPrompt() {
@@ -170,27 +172,27 @@ function timeforPrompt() {
 }
 
 
-function loadPrompt() {
+function loadTrivia() {
 
     count++;
     console.log("count: " + count)
 
-    setTimeout(displayPrompt, 1000);
+    var timeoutDisplay = setTimeout(displayTrivia, 1000);
+    console.log(timeoutDisplay +"TimeoutDisplay");
 
-    if (count === trivia.length) {
-
-        stopPrompt();
-    };
 };
 
-function startPrompt() {
+function startTrivia() {
     displayTime();
-    displayPrompt();
-    showPrompt = setInterval(loadPrompt, 30000);
+    displayTrivia();
+    intervalPrompt = setInterval(loadTrivia, 30000);
+    console.log("showPrompt"+intervalPrompt);
 
 };
 
-function stopPrompt() {
-    clearInterval(showPrompt);
+function stopTrivia() {
+    clearInterval(invervalPrompt);
+    clearInterval(intervalTimer);
+    clearTimeout(timeoutDisplay);
 
 };
