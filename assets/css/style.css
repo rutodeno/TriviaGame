@@ -19,11 +19,16 @@ h1 {
     margin: 0px 0px 5px;
 }
 
+html, body {
+
+    height: 100%;
+
+}
+
 body {
 
     background-image: url("../image/82dairborne3.jpg");
-    height: 100%;
-    width: 100%;
+    /*width: 100%; */
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -40,12 +45,27 @@ body {
     
 }
 
+.btn {
+    width: 170px;
+    height: 45px;
+    padding:10px;
+    
+}
+
+.btn-info {
+    background-color: #73a4c9;
+
+}
 
 button#loadGame{
     margin-left: 20px;
     margin-top: 60px;
     background-color: #800020;
     color: #fff;
+}
+#restartBtn {
+    margin-top: 80px;
+    margin-left: 270px;
 }
 
 .answer {
@@ -63,6 +83,10 @@ button#loadGame{
 
 .answer :hover {
     background-color: #73a4c9; 
+}
+
+#triviaRow.row {
+    margin-top: 75px;
 }
 
 
