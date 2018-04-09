@@ -153,6 +153,8 @@ $(document).on("click", "#restartID", function(){
     console.log("yo");
     restartGame();
 
+    /// current situation. find a way to erase restart button
+
 });
 
 function displayQuestion() {
@@ -209,11 +211,12 @@ function stopTrivia() {
     clearInterval(intervalTimer);
     clearTimeout(timeoutDisplay);
 
-    $("#wrapper").html("Congratulation !!! You have completed the trivia. Click <strong> Restart </strong> to start the game again.");
+    $("#wrapper").html("Congratulation !!! You have got "+correctAnswer+"answers right. Click <strong> Restart </strong> to start the game again.");
+
 
     var restart = $("<button type ='button' id='restartID' class='btn btn-info btn-lg'>Restart</button>");
 
-    $("#restartBtn").append(restart);
+    $("#restartBtn").html(restart);
 
 };
 
